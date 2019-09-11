@@ -9,6 +9,10 @@ eventSource.onmessage = e => new newNotification(e); // do something with the pa
 function newNotification(event) {
     let notification = JSON.parse(event.data);
 
-    console.log(document.querySelector('.bell-body').classList);
+    $('.bell-body>.no-notification').remove();
+    $('.bell-body').append('<div class="bell-notification-item pb-10 pt-10 pr-20 pl-15">' +
+        '                <i class="fa fa-check-circle bell-notification-icon" aria-hidden="true"></i>' +
+        '                <span class="bell-notification-content ml-20"><b>Admin</b> a publié un nouvel article</span>' +
+        '            </div>');
     console.log(notification.createdBy.username)
 }

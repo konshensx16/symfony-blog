@@ -62,11 +62,14 @@
                 font-weight: bold;
             }
 
-            .no-notification {
+            .bell-body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: calc(215px - 40px);
+                min-height: calc(215px - 40px);
+            }
+
+            .no-notification {
             }
 
             .vertical-bar::before {
