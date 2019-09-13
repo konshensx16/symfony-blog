@@ -35,6 +35,12 @@ class Notification
      */
     private $createdBy;
 
+    /**
+     * @ORM\Column(name="target_link", type="string")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $targetLink;
+
     public function getId(): int
     {
         return $this->id;
@@ -75,6 +81,18 @@ class Notification
     public function setCreatedBy(UserInterface $createdBy): self
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getTargetLink(): string
+    {
+        return $this->targetLink;
+    }
+
+    public function setTargetLink(string $targetLink): self
+    {
+        $this->targetLink = $targetLink;
 
         return $this;
     }

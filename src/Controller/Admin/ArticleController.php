@@ -45,7 +45,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->articleManager->create($article);
 
-            $notifier->articleCreated($publisher);
+            $notifier->articleCreated($article, $publisher);
 
             $flashMessage->createMessage(
                 $request,

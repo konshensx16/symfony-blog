@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Entity\Article;
 use App\Entity\NotificationType;
 use App\Repository\NotificationRepository;
 use App\Services\Notification\Factory\NotificationFactory;
@@ -39,9 +40,9 @@ class Notifier
         $this->serializer = $serializer;
     }
 
-    public function articleCreated(Publisher $publisher)
+    public function articleCreated(Article $article, Publisher $publisher)
     {
-        $notification = $this->notificationFactory->create(NotificationType::ARTICLE_CREATED);
+        $notification = $this->notificationFactory->create($article, NotificationType::ARTICLE_CREATED);
         $this->notificationRepository->save($notification);
 
         $jsonContent = $this->serializer->serialize($notification, 'json');
